@@ -5,6 +5,7 @@ version: 'v0.0.2'
 workflows:
     '.github/workflows/lock-alias.yml':
         - 'actions/checkout@v4'
+        - 'toofikz2/ghalock-alias-action-20260807-042511@alias-v1'
     '.github/workflows/lock-literal.yml':
         - 'actions/checkout@v4'
         - 'toofikz2/ghalock-alias-action-20260807-042511@literal-v1'
@@ -14,6 +15,11 @@ dependencies:
         commit: 'sha1-11d5960a326750d5838078e36cf38b85af677262'
         owner_id: 44036562
         repo_id: 197814629
+    'toofikz2/ghalock-alias-action-20260807-042511@alias-v1':
+        ref: 'alias-v1'
+        commit: 'sha1-96d6d9a20b8daa79c4dae752e840f3bacef38c5b'
+        owner_id: 269853189
+        repo_id: 1326113981
     'toofikz2/ghalock-alias-action-20260807-042511@literal-v1':
         ref: 'literal-v1'
         commit: 'sha1-96d6d9a20b8daa79c4dae752e840f3bacef38c5b'
