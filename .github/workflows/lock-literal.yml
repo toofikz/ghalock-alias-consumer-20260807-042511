@@ -1,0 +1,32 @@
+# This workflow is managed by gh actions-lock.
+
+name: Lock literal control
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    if: >-
+      github.event.issue.pull_request &&
+      github.repository == 'toofikz/ghalock-alias-consumer-20260807-042511' &&
+      github.actor == 'toofikz2' &&
+      github.event.issue.number == 1 &&
+      (github.event.comment.body == 'GHALOCK_TRIGGER_PRE_b18a230b46a5071c' ||
+       github.event.comment.body == 'GHALOCK_TRIGGER_POST_b18a230b46a5071c')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Literal onboarding sentinel
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Literal dependency
+        uses: toofikz2/ghalock-alias-action-20260807-042511@literal-v1
+        with:
+          mode: literal
+          phase: ${{ github.event.comment.body == 'GHALOCK_TRIGGER_PRE_b18a230b46a5071c' && 'pre' || 'post' }}
